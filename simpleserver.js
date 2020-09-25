@@ -1,6 +1,7 @@
 const WebSocket = require('ws').Server;
-const wss = new WebSocket({ port: 9090 });
+const wss = new WebSocket({ port: process.env.PORT || 9090 });
 const log = (a) => console.log(a);
+log(process.env.PORT);
 let users = {}
 wss.on('connection', (client) =>{
   client.on('message',(data) =>{
